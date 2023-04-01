@@ -1,0 +1,38 @@
+---
+import "ress/dist/ress.min.css";
+import Layout from "../layouts/layout.astro";
+import { HeroSectionComponent } from "../components/sections/hero/hero";
+import { AboutUsSectionComponent } from "../components/sections/about-us/about-us";
+import { HowWeWorkSectionComponent } from "../components/sections/how-we-work/how-we-work";
+import { getImage } from "astro:assets";
+import bgImage from "../assets/images/bg.png";
+
+const { src } = await getImage({
+  src: bgImage,
+  alt: "Хлеб&Печь",
+  format: "webp",
+});
+
+const backgroundImage = `url(${src})`;
+---
+
+<Layout>
+  <main class="main-layout">
+    <HeroSectionComponent />
+    <HowWeWorkSectionComponent />
+    <AboutUsSectionComponent />
+  </main>
+</Layout>
+
+<style define:vars={{ backgroundImage }}>
+  .main-layout::before {
+    content: "";
+    width: 100vw;
+    height: 100vw;
+    position: fixed;
+    background-image: var(--backgroundImage);
+    background-position: -5%;
+    background-repeat: repeat;
+    z-index: -1;
+  }
+</style>

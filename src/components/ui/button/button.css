@@ -1,0 +1,13 @@
+.main-button {
+  display: inline-flex;
+  color: #fff;
+  background-color: var(--color-light-orange);
+  padding: 16px 50px;
+  border-radius: 30px;
+  font-family: Sen, sans-serif;
+  font-weight: 900;
+  font-size: 18px;
+  line-height: 24px;
+  text-decoration: none;
+  text-transform: uppercase;
+}

@@ -1,0 +1,27 @@
+:root {
+  --wrapper: calc((100% - 1260px) / 2);
+}
+
+@media (min-width: 575.98px) {
+  :root {
+    --wrapper: calc(50% - 270px);
+  }
+}
+
+@media (min-width: 767.98px) {
+  :root {
+    --wrapper: calc(50% - 360px);
+  }
+}
+
+@media (min-width: 991.98px) {
+  :root {
+    --wrapper: calc(50% - 480px);
+  }
+}
+
+@media (min-width: 1199.98px) {
+  :root {
+    --wrapper: calc(50% - 590px);
+  }
+}
