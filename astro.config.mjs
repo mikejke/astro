@@ -5,7 +5,8 @@ import image from "@astrojs/image";
 
 // https://astro.build/config
 export default defineConfig({
-  site: "https://mikejke.github.io/landing",
+  site: "https://mikejke.github.io",
+  base: "/landing",
   integrations: [solidJs(), image()],
   experimental: {
     assets: true,
