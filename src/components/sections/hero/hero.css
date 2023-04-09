@@ -54,7 +54,7 @@
 
 .hero-section__logo__content__icon {
   transition: transform 0.5s ease-in-out;
-  font-size: 52px;
+  fill: white;
 }
 
 .hero-section__logo__content__name {
@@ -121,10 +121,10 @@
   margin-left: auto;
 }
 
-.hero-section__contacts > * {
-  font-size: 24px;
-  color: var(--color-orange);
+.hero-section__contacts__socials > * {
+  fill: var(--color-orange);
 }
+
 .hero-section__contacts__info {
   width: 60%;
   padding: 20px;
