@@ -17,7 +17,7 @@ const images = await Promise.all(
       alt: "Хлеб&Печь",
     });
 
-    return src;
+    return `${import.meta.env.BASE_URL}${src}`;
   })
 );
 
