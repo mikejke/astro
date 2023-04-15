@@ -1,26 +1,28 @@
-import type { Component } from "solid-js";
-import "./hero.css";
-import { ButtonComponent } from "../../ui/button/button";
-import { getImage } from "astro:assets";
-import heroImage from "../../../assets/images/hero-image.png";
-import { IconComponent } from "../../ui/icon/icon";
+import type { Component } from 'solid-js'
+import './hero.css'
+import { ButtonComponent } from '../../ui/button/button'
+import { getImage } from 'astro:assets'
+import heroImage from '../../../assets/images/hero-image.png'
+import { IconComponent } from '../../ui/icon/icon'
 
-type HeroSectionProps<P = {}> = P & {};
-type HeroSectionComponent<P = {}> = Component<HeroSectionProps<P>>;
+type HeroSectionProps<P = Record<never, never>> = P & Record<never, never>
+type HeroSectionComponent<P = Record<never, never>> = Component<
+  HeroSectionProps<P>
+>
 
 const { src } = await getImage({
   src: heroImage,
-  alt: "Хлеб&Печь",
-  aspectRatio: "37:23",
-  format: "webp",
-});
+  alt: 'Хлеб&Печь',
+  aspectRatio: '37:23',
+  format: 'webp',
+})
 
 export const HeroSectionComponent: HeroSectionComponent = () => {
   return (
     <section class="hero-section">
       <img
         class="hero-section__image"
-        src={src ? `${import.meta.env.BASE_URL}${src.slice(1)}` : ""}
+        src={src ? `${import.meta.env.BASE_URL}${src.slice(1)}` : ''}
         alt="Хлеб&Печь"
       />
       <div class="hero-section__logo">
@@ -72,5 +74,5 @@ export const HeroSectionComponent: HeroSectionComponent = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
