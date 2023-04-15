@@ -13,7 +13,9 @@ const { src } = await getImage({
   format: "webp",
 });
 
-const backgroundImage = `url(${import.meta.env.BASE_URL}${src || ""}}})`;
+const backgroundImage = `url(${
+  src ? `${import.meta.env.BASE_URL}${src.slice(1)}` : ""
+})`;
 ---
 
 <Layout>

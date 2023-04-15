@@ -12,6 +12,7 @@ const { src } = await getImage({
   src: heroImage,
   alt: "Хлеб&Печь",
   aspectRatio: "37:23",
+  format: "webp",
 });
 
 export const HeroSectionComponent: HeroSectionComponent = () => {
@@ -19,7 +20,7 @@ export const HeroSectionComponent: HeroSectionComponent = () => {
     <section class="hero-section">
       <img
         class="hero-section__image"
-        src={`${import.meta.env.BASE_URL}${src}` || ""}
+        src={src ? `${import.meta.env.BASE_URL}${src.slice(1)}` : ""}
         alt="Хлеб&Печь"
       />
       <div class="hero-section__logo">

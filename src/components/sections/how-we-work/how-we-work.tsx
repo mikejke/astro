@@ -15,9 +15,10 @@ const images = await Promise.all(
     const { src } = await getImage({
       src: img,
       alt: "Хлеб&Печь",
+      format: "webp",
     });
 
-    return `${import.meta.env.BASE_URL}${src}`;
+    return src ? `${import.meta.env.BASE_URL}${src.slice(1)}` : "";
   })
 );
 
