@@ -15,8 +15,8 @@
 }
 
 .about-us-section__background__image {
+  height: calc(100% - 100px);
   margin-top: 50px;
-  height: calc(100% - 50px);
   border-radius: 10px;
 }
 
@@ -46,7 +46,7 @@
 }
 
 .about-us-section__content::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;

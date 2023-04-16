@@ -1,26 +1,17 @@
 import type { Component } from 'solid-js'
 import './hero.css'
 import { ButtonComponent } from '../../ui/button/button'
-import { getImage } from 'astro:assets'
-import heroImage from '../../../assets/images/hero-image.png'
 import { IconComponent } from '../../ui/icon/icon'
 
-type HeroSectionProps<P = Record<never, never>> = P & Record<never, never>
-type HeroSectionComponent<P = Record<never, never>> = Component<
-  HeroSectionProps<P>
->
+type HeroSectionProps = {
+  image: string
+}
+type HeroSectionComponent = Component<HeroSectionProps>
 
-const { src } = await getImage({
-  src: heroImage,
-  alt: 'Хлеб&Печь',
-  aspectRatio: '37:23',
-  format: 'webp',
-})
-
-export const HeroSectionComponent: HeroSectionComponent = () => {
+export const HeroSectionComponent: HeroSectionComponent = props => {
   return (
     <section class="hero-section">
-      <img class="hero-section__image" src={src ? src : ''} alt="Хлеб&Печь" />
+      <img class="hero-section__image" src={props.image} alt="Хлеб&Печь" />
       <div class="hero-section__logo">
         <a class="hero-section__logo__content" href="#">
           <IconComponent
@@ -40,7 +31,12 @@ export const HeroSectionComponent: HeroSectionComponent = () => {
           since the
         </p>
         <div class="hero-section__actions">
-          <ButtonComponent content="Подробнее" />
+          <ButtonComponent
+            content="Подробнее"
+            onClick={() => {
+              console.log('test')
+            }}
+          />
         </div>
       </div>
       <div class="hero-section__contacts__wrapper">

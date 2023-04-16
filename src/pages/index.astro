@@ -6,21 +6,57 @@ import { AboutUsSectionComponent } from '../components/sections/about-us/about-u
 import { HowWeWorkSectionComponent } from '../components/sections/how-we-work/how-we-work'
 import { getImage } from 'astro:assets'
 import bgImage from '../assets/images/bg.png'
+import heroImage from '../assets/images/hero-image.png'
+import slideImage1 from '../assets/images/slide-image-1.png'
+import slideImage2 from '../assets/images/slide-image-2.png'
+import slideImage3 from '../assets/images/slide-image-3.png'
+import slideImage4 from '../assets/images/slide-image-4.png'
+import aboutUsImage from '../assets/images/about-us-image.png'
 
-const { src } = await getImage({
+const { src: bgImageSrc } = await getImage({
   src: bgImage,
   alt: 'Хлеб&Печь',
   format: 'webp',
 })
 
-const backgroundImage = `url(${src ? src : ''})`
+const { src: heroSectionImageSrc } = await getImage({
+  src: heroImage,
+  alt: 'Хлеб&Печь',
+  format: 'webp',
+  width: 665,
+  height: 414,
+})
+
+const howWeWorkImages = await Promise.all(
+  [slideImage1, slideImage2, slideImage3, slideImage4].map(async img => {
+    const { src } = await getImage({
+      src: img,
+      alt: 'Хлеб&Печь',
+      format: 'webp',
+      width: 270,
+      height: 300,
+    })
+
+    return src
+  }),
+)
+
+const { src: aboutUsSectionImageSrc } = await getImage({
+  src: aboutUsImage,
+  alt: 'Хлеб&Печь',
+  format: 'webp',
+  width: 635,
+  height: 735,
+})
+
+const backgroundImage = `url(${bgImageSrc})`
 ---
 
 <Layout>
   <main class="main-layout">
-    <HeroSectionComponent />
-    <HowWeWorkSectionComponent />
-    <AboutUsSectionComponent />
+    <HeroSectionComponent image={heroSectionImageSrc} client:load />
+    <HowWeWorkSectionComponent images={howWeWorkImages} client:load />
+    <AboutUsSectionComponent image={aboutUsSectionImageSrc} client:load />
   </main>
 </Layout>
 

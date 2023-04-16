@@ -1,30 +1,13 @@
 import { Component, For } from 'solid-js'
 import './how-we-work.css'
 import { ButtonComponent } from '../../ui/button/button'
-import { getImage } from 'astro:assets'
-import slideImage1 from '../../../assets/images/slide-image-1.png'
-import slideImage2 from '../../../assets/images/slide-image-2.png'
-import slideImage3 from '../../../assets/images/slide-image-3.png'
-import slideImage4 from '../../../assets/images/slide-image-4.png'
 
-type HowWeWorkProps<P = Record<never, never>> = P & Record<never, never>
-type HowWeWorkSectionComponent<P = Record<never, never>> = Component<
-  HowWeWorkProps<P>
->
+type HowWeWorkProps = {
+  images: string[]
+}
+type HowWeWorkSectionComponent = Component<HowWeWorkProps>
 
-const images = await Promise.all(
-  [slideImage1, slideImage2, slideImage3, slideImage4].map(async img => {
-    const { src } = await getImage({
-      src: img,
-      alt: 'Хлеб&Печь',
-      format: 'webp',
-    })
-
-    return src ? src : ''
-  }),
-)
-
-export const HowWeWorkSectionComponent: HowWeWorkSectionComponent = () => {
+export const HowWeWorkSectionComponent: HowWeWorkSectionComponent = props => {
   return (
     <section class="how-we-work-section">
       <div class="how-we-work-section__inner">
@@ -34,11 +17,11 @@ export const HowWeWorkSectionComponent: HowWeWorkSectionComponent = () => {
       </div>
       <div class="how-we-work-section__showcase">
         <div class="how-we-work-section__showcase__image-list">
-          <For each={images}>
+          <For each={props.images}>
             {src => (
               <img
                 class="how-we-work-section__showcase__image"
-                src={src || ''}
+                src={src}
                 alt="Хлеб&Печь"
               />
             )}
