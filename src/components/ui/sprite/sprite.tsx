@@ -1,9 +1,9 @@
-import type { Component, JSX } from "solid-js";
+import type { Component, JSX } from 'solid-js'
 
-type SpriteComponent<P = {}> = Component;
+type SpriteComponent = Component
 
 export const SpriteComponent: SpriteComponent = () => {
-  const style: JSX.CSSProperties = { display: "none" };
+  const style: JSX.CSSProperties = { display: 'none' }
 
   return (
     <svg style={style}>
@@ -18,5 +18,5 @@ export const SpriteComponent: SpriteComponent = () => {
         />
       </symbol>
     </svg>
-  );
-};
+  )
+}
