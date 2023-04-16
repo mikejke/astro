@@ -20,11 +20,7 @@ const { src } = await getImage({
 export const HeroSectionComponent: HeroSectionComponent = () => {
   return (
     <section class="hero-section">
-      <img
-        class="hero-section__image"
-        src={src ? `${import.meta.env.BASE_URL}${src.slice(1)}` : ''}
-        alt="Хлеб&Печь"
-      />
+      <img class="hero-section__image" src={src ? src : ''} alt="Хлеб&Печь" />
       <div class="hero-section__logo">
         <a class="hero-section__logo__content" href="#">
           <IconComponent

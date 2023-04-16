@@ -35,7 +35,7 @@ export const AboutUsSectionComponent: AboutUsSectionComponent = () => {
       <div class="about-us-section__background">
         <img
           class="about-us-section__background__image"
-          src={src ? `${import.meta.env.BASE_URL}${src.slice(1)}` : ''}
+          src={src ? src : ''}
           alt="Хлеб&Печь"
         />
       </div>

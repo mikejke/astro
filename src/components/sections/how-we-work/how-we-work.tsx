@@ -20,7 +20,7 @@ const images = await Promise.all(
       format: 'webp',
     })
 
-    return src ? `${import.meta.env.BASE_URL}${src.slice(1)}` : ''
+    return src ? src : ''
   }),
 )
 
