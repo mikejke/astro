@@ -59,7 +59,7 @@ export const HeroSectionComponent: HeroSectionComponent = props => {
             <ul class="hero-section__contacts__info__list">
               <li>Адрес: г. Ярославль, Московский проспект, 88</li>
               <li>
-                Телефон: <a href="#">8 (800) 555-35-35</a>
+                Телефон: <a href="tel:8 (800) 555-35-35">8 (800) 555-35-35</a>
               </li>
             </ul>
           </div>

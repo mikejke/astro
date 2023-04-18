@@ -4,6 +4,7 @@ import Layout from '../layouts/layout.astro'
 import { HeroSectionComponent } from '../components/sections/hero/hero'
 import { AboutUsSectionComponent } from '../components/sections/about-us/about-us'
 import { HowWeWorkSectionComponent } from '../components/sections/how-we-work/how-we-work'
+import { ReviewsSectionComponent } from '../components/sections/reviews/reviews'
 import { getImage } from 'astro:assets'
 import bgImage from '../assets/images/bg.png'
 import heroImage from '../assets/images/hero-image.png'
@@ -57,6 +58,23 @@ const backgroundImage = `url(${bgImageSrc})`
     <HeroSectionComponent image={heroSectionImageSrc} client:load />
     <HowWeWorkSectionComponent images={howWeWorkImages} client:load />
     <AboutUsSectionComponent image={aboutUsSectionImageSrc} client:load />
+    <ReviewsSectionComponent client:load />
+    <footer class="main-layout__footer">
+      <ul class="main-layout__footer__contacts">
+        <li class="main-layout__footer__contacts__item">
+          <a href="mailto:mail@example.com">mail@example.com</a>
+        </li>
+        <li class="main-layout__footer__contacts__item">
+          <a href="tel:8 (800) 555-35-35">8 (800) 555-35-35</a>
+        </li>
+        <li class="main-layout__footer__contacts__address">
+          г. Ярославль, Московский проспект, 88
+        </li>
+      </ul>
+      <span class="main-layout__footer__copy">
+        {new Date().getFullYear()} &copy; Хлеб&Печь
+      </span>
+    </footer>
   </main>
 </Layout>
 
@@ -70,5 +88,41 @@ const backgroundImage = `url(${bgImageSrc})`
     background-position: -5%;
     background-repeat: repeat;
     z-index: -1;
+  }
+
+  .main-layout__footer {
+    padding: 25px var(--wrapper);
+    background-color: var(--color-brown);
+    color: white;
+    font-family: Nunito, sans-serif;
+    font-style: normal;
+  }
+
+  .main-layout__footer__contacts {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 30px;
+    list-style: none;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 143%;
+  }
+
+  .main-layout__footer__contacts__item a {
+    color: #fff;
+    text-decoration: none;
+  }
+
+  .main-layout__footer__contacts__item a:hover {
+    font-weight: 700;
+  }
+
+  .main-layout__footer__copy {
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 143%;
   }
 </style>
